@@ -1,0 +1,8 @@
+---
+layout: post
+title: bla
+---
+
+h1. {{ page.title }}
+
+blablabla
