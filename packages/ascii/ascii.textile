@@ -1,0 +1,8 @@
+---
+layout: post
+title: ascii
+---
+
+h1. {{ page.title }}
+
+"ascii":http://eusebe.github.com/packages/ascii is a R package for writing "asciidoc":http://www.methods.co.nz/asciidoc/, "txt2tags":http://txt2tags.sourceforge.net/, "reStructuredText":http://docutils.sourceforge.net/rest.html, "org":http://orgmode.org/ or "textile":http://textile.thresholdstate.com/ documents with embeded R code.

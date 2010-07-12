@@ -1,8 +1,9 @@
 ---
 layout: post
-title: bla
+title: Hello!
 ---
 
 h1. {{ page.title }}
 
-blablabla
+New site.
+
