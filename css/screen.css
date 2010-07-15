@@ -29,6 +29,9 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   margin-bottom: 1em;
 }
+h2 {
+  margin-top: 1em;
+}
 
 p {
   margin: 1em 0;
@@ -46,10 +49,74 @@ a:visited {
   color: #a0a;
 }
 
-table {
+/* Greyscale
+Table Design by Scott Boyle, Two Plus Four
+www.twoplusfour.co.uk
+----------------------------------------------- */
+
+table {border-collapse: collapse;
+border: 2px solid #000;
+font: normal 80%/140% arial, helvetica, sans-serif;
+color: #555;
+background: #fff;}
+
+td, th {border: 1px dotted #bbb;
+padding: .5em;}
+
+caption {padding: 0 0 .5em 0;
+text-align: left;
+font-size: 1.4em;
+font-weight: bold;
+text-transform: uppercase;
+color: #333;
+background: transparent;}
+
+/* =links
+----------------------------------------------- */
+
+table a {padding: 1px;
+text-decoration: none;
+font-weight: bold;
+background: transparent;}
+
+table a:link {border-bottom: 1px dashed #ddd;
+color: #000;}
+
+table a:visited {border-bottom: 1px dashed #ccc;
+text-decoration: line-through;
+color: #808080;}
+
+table a:hover {border-bottom: 1px dashed #bbb;
+color: #666;}
+
+/* =head =foot
+----------------------------------------------- */
+
+thead th, tfoot th {border: 2px solid #000;
+text-align: left;
+font-size: 1.2em;
+font-weight: bold;
+color: #333;
+background: transparent;}
+
+tfoot td {border: 2px solid #000;}
+
+/* =body
+----------------------------------------------- */
+
+tbody th, tbody td {vertical-align: top;
+text-align: left;}
+
+tbody th {white-space: nowrap;}
+
+.odd {background: #fcfcfc;}
+
+tbody tr:hover {background: #fafafa;}
+
+/*table {
   font-size: inherit;
   font: 100%;
-}
+}*/
 
 /*****************************************************************************/
 /*
@@ -148,43 +215,46 @@ ul.posts {
 /*
 /*****************************************************************************/
 
-#post {
+/* standard */
 
-}
-
-  /* standard */
-
-  #post pre {
+pre {
     border: 1px solid #ddd;
     background-color: #eef;
     padding: 0 .4em;
+    margin-top:1em;
+    margin-bottom:1em;
   }
 
-  #post ul,
-  #post ol {
+ul,
+ol {
     margin-left: 1.25em;
   }
+dl dt  {
+    font-weight: bold;
+    font-style: italic;
+    color: grey;
+}
 
-  #post code {
+code {
     border: 1px solid #ddd;
     background-color: #eef;
     font-size: 85%;
-    padding: 0 .2em;
+    padding: 0 .2em; 
   }
 
-    #post pre code {
+pre code {
       border: none;
     }
 
   /* terminal */
 
-  #post pre.terminal {
+pre.terminal {
     border: 1px solid black;
     background-color: #333;
     color: white;
   }
 
-  #post pre.terminal code {
+pre.terminal code {
     background-color: #333;
   }
 
