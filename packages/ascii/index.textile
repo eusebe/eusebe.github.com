@@ -1,0 +1,112 @@
+---
+layout: default
+title: ascii
+---
+
+h1. {{ page.title }}
+
+"ascii":/packages/ascii/ is a R package for writing "asciidoc":http://www.methods.co.nz/asciidoc/, "txt2tags":http://txt2tags.sourceforge.net/, "reStructuredText":http://docutils.sourceforge.net/rest.html, "org":http://orgmode.org/ or "textile":http://textile.thresholdstate.com/ documents with embeded R code.
+
+
+
+
+h2. simple output
+
+bc.  <<>>=
+ x <- matrix(1:4, 2, 2)
+ x
+ @ 
+
+gives in the final document:
+
+{% highlight r %}
+> x <- matrix(1:4, 2, 2)
+> x
+     [,1] [,2]
+[1,]    1    3
+[2,]    2    4 
+{% endhighlight %}
+
+h2. a table example
+
+bc.  <<echo = FALSE, results = ascii>>=
+ ascii(x)
+ @
+
+gives:
+
+|. 1.00 | 3.00 |
+| 2.00  | 4.00 | 
+
+The same with some options:
+
+{% highlight r %}
+> ascii(x, caption = "A simple matrix", width = 50, digits = 0, align = c("c", 
++     "r"), style = matrix(c("d", "s", "e", "m"), 2, 2), lgroup = "group 1", 
++     tgroup = "group 2")
+{% endhighlight %}
+A simple matrix
+
+table{width:50%}.
+|/1\1. |_\2=-. group 2 |
+|_/2=-. group 1 |=. 1   |>. _3_            |
+|=. *2* |>. <code>4</code> | 
+
+h2. a list example
+
+bc.  <<echo = FALSE, results = ascii>>=
+ y <- summary(with(esoph, table(alcgp, agegp)))
+ ascii(y, caption = "A simple list")
+ @
+
+
+.A simple list
+* Number of cases in table: 88 
+* Number of factors: 2 
+* Test for independence of all factors:
+** Chisq = 1.4189, df = 15, p-value = 1
+** Chi-squared approximation may be incorrect 
+
+h2. what ascii provides
+
+* a generic method: @ascii()@. It creates a plain text representations of many R objects.
+* several classic @Sweave@ drivers: @RweaveAsciidoc()@, @RweaveT2t()@, @RweaveReST()@, @RweaveOrg()@ and @RweaveTextile()@.
+* "weaver":http://bioconductor.org/packages/2.6/bioc/html/weaver.html based @Sweave@ drivers: @weaverAsciidoc()@, @weaverT2t()@, @weaverReST()@, @weaverOrg()@ and @weaverTextile()@.
+* "cacheSweave":http://cran.r-project.org/web/packages/cacheSweave/index.html based @Sweave@ drivers: @cacheSweaveAsciidoc()@, @cacheSweaveT2t()@, @cacheSweaveReST()@, @cacheSweaveOrg()@ and @cacheSweaveTextile()@.
+* some simple wrappers for @Sweave()@ named @Asciidoc()@, @T2t()@, @ReST()@, @Org()@ and @Textile()@.
+
+h2. ascii methods
+
+ascii provides methods for:
+
+{% highlight r %}
+> methods(ascii)
+ [1] ascii.anova*              ascii.aov*                ascii.aovlist*           
+ [4] ascii.cast_df*            ascii.character*          ascii.coxph*             
+ [7] ascii.CrossTable*         ascii.data.frame*         ascii.default*           
+[10] ascii.density*            ascii.describe*           ascii.describe.single*   
+[13] ascii.factor*             ascii.freqtable*          ascii.ftable*            
+[16] ascii.glm*                ascii.htest*              ascii.integer*           
+[19] ascii.list*               ascii.lm*                 ascii.matrix*            
+[22] ascii.meanscomp*          ascii.numeric*            ascii.packageDescription*
+[25] ascii.prcomp*             ascii.sessionInfo*        ascii.simple.list*       
+[28] ascii.smooth.spline*      ascii.summary.aov*        ascii.summary.aovlist*   
+[31] ascii.summary.glm*        ascii.summary.lm*         ascii.summary.prcomp*    
+[34] ascii.summary.survfit*    ascii.summary.table*      ascii.survdiff*          
+[37] ascii.survfit*            ascii.table*              ascii.ts*                
+[40] ascii.zoo*               
+
+   Non-visible functions are asterisked 
+{% endhighlight %}
+
+h2. session info
+
+- R version :=  R version 2.11.1 (2010-05-31), i486-pc-linux-gnu
+- locale :=  LC_CTYPE=fr_FR.utf8, LC_NUMERIC=C, LC_TIME=fr_FR.utf8, LC_COLLATE=fr_FR.utf8, LC_MONETARY=C, LC_MESSAGES=fr_FR.utf8, LC_PAPER=fr_FR.utf8, LC_NAME=C, LC_ADDRESS=C, LC_TELEPHONE=C, LC_MEASUREMENT=fr_FR.utf8, LC_IDENTIFICATION=C
+- attached base packages :=  stats, graphics, grDevices, utils, datasets, methods, base
+- other attached packages :=  ascii_0.7-1, proto_0.3-8
+- loaded via a namespace (and not attached) := tools_2.11.1 
+
+h2. source of this documentation
+
+"see there":/packages/ascii/index.Rnw.

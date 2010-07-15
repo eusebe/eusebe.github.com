@@ -1,0 +1,85 @@
+---
+layout: default
+title: ascii
+---
+
+h1. {{ page.title }}
+
+"ascii":/packages/ascii/ is a R package for writing "asciidoc":http://www.methods.co.nz/asciidoc/, "txt2tags":http://txt2tags.sourceforge.net/, "reStructuredText":http://docutils.sourceforge.net/rest.html, "org":http://orgmode.org/ or "textile":http://textile.thresholdstate.com/ documents with embeded R code.
+
+<<echo = FALSE, results = hide>>=
+options(asciiType = "textile")
+options(width = 90)
+@ 
+
+h2. simple output
+
+@ascii@ extends @Sweave@ to more markup languages. 
+bc.  <<>>=
+ x <- matrix(1:4, 2, 2)
+ x
+ @ 
+
+gives in the final document:
+
+<<simplematrix1>>=
+x <- matrix(1:4, 2, 2)
+x
+@
+
+h2. a table example
+
+bc.  <<echo = FALSE, results = ascii>>=
+ ascii(x)
+ @
+
+gives:
+
+<<simplematrix2, echo = FALSE, results = ascii>>=
+ascii(x)
+@ 
+
+The same with some options:
+
+<<simplematrix3, echo = TRUE, results = ascii>>=
+ascii(x, caption = "A simple matrix", width = 50, digits = 0, align = c("c", "r"), style = matrix(c("d", "s", "e", "m"), 2, 2), lgroup = "group 1", tgroup = "group 2")
+@ 
+
+h2. a list example
+
+bc.  <<echo = FALSE, results = ascii>>=
+ y <- summary(with(esoph, table(alcgp, agegp)))
+ ascii(y, caption = "A simple list")
+ @
+
+<<simplelist, echo = FALSE, results = ascii>>=
+y <- summary(with(esoph, table(alcgp, agegp)))
+ascii(y, caption = "A simple list")
+@ 
+
+h2. what ascii provides
+@ascii@ provided:
+
+* a generic method: @ascii()@. It creates a plain text representations of many R objects.
+* several classic @Sweave@ drivers: @RweaveAsciidoc()@, @RweaveT2t()@, @RweaveReST()@, @RweaveOrg()@ and @RweaveTextile()@.
+* "weaver":http://bioconductor.org/packages/2.6/bioc/html/weaver.html based @Sweave@ drivers: @weaverAsciidoc()@, @weaverT2t()@, @weaverReST()@, @weaverOrg()@ and @weaverTextile()@.
+* "cacheSweave":http://cran.r-project.org/web/packages/cacheSweave/index.html based @Sweave@ drivers: @cacheSweaveAsciidoc()@, @cacheSweaveT2t()@, @cacheSweaveReST()@, @cacheSweaveOrg()@ and @cacheSweaveTextile()@.
+* some simple wrappers for @Sweave()@ named @Asciidoc()@, @T2t()@, @ReST()@, @Org()@ and @Textile()@.
+
+h2. ascii methods
+
+ascii provides methods for:
+
+<<>>=
+methods(ascii)
+@ 
+
+h2. session info
+
+<<echo = FALSE, results = ascii>>=
+ascii(sessionInfo())
+@ 
+
+h2. source of this documentation
+
+"see there":/packages/ascii/index.Rnw.
