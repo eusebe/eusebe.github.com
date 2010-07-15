@@ -1,0 +1,8 @@
+---
+layout: post
+title: Hello!
+---
+
+h1. {{ page.title }}
+
+This is my new website.
