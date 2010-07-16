@@ -5,7 +5,7 @@ title: ascii
 
 h1. {{ page.title }}
 
-"ascii":/packages/ascii/ is a R package for writing "asciidoc":http://www.methods.co.nz/asciidoc/, "txt2tags":http://txt2tags.sourceforge.net/, "reStructuredText":http://docutils.sourceforge.net/rest.html, "org":http://orgmode.org/ or "textile":http://textile.thresholdstate.com/ documents with embeded R code.
+"ascii":/packages/ascii/ is a R package for writing "asciidoc":http://www.methods.co.nz/asciidoc/, "txt2tags":http://txt2tags.sourceforge.net/, "reStructuredText":http://docutils.sourceforge.net/rst.html, "org":http://orgmode.org/ or "textile":http://textile.thresholdstate.com/ documents with embeded R code.
 
 <<echo = FALSE, results = hide>>=
 options(asciiType = "textile")
@@ -58,7 +58,8 @@ ascii(y, caption = "A simple list")
 @ 
 
 h2. what ascii provides
-@ascii@ provided:
+
+"ascii":/packages/ascii/ provides:
 
 * a generic method: @ascii()@. It creates a plain text representations of many R objects.
 * several classic @Sweave@ drivers: @RweaveAsciidoc()@, @RweaveT2t()@, @RweaveReST()@, @RweaveOrg()@ and @RweaveTextile()@.
