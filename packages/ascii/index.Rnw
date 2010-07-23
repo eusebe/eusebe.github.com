@@ -81,6 +81,6 @@ h2. session info
 ascii(sessionInfo())
 @ 
 
-h2. source of this documentation
+h2. A Sweave demo
 
-"see there":/packages/ascii/index.Rnw.
+Charlie Geyer created a demonstration of Sweave entitled available at his Sweave page. A version using textile is available "here":/packages/ascii/demo.html.
